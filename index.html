@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemberitahuan HubNet</title>
+    <style>
+        /* --- Reset & Layout Minimalis ISP Modern --- */
+        * { box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #ff8c00 0%, #e85d04 50%, #d00000 100%); 
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif; 
+            text-align: center; 
+            padding: 30px 15px; 
+            margin: 0;
+        }
+        
+        /* --- Kotak Putih Bersih Bertema Tekno --- */
+        .kotak { 
+            background: #ffffff; 
+            width: 100%;
+            max-width: 440px; 
+            padding: 35px 24px; 
+            border-radius: 24px; 
+            box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25); 
+            margin: 0 auto; 
+            position: relative;
+            border-top: 6px solid #ff6b00;
+        }
+        
+        /* --- Gaya Teks Judul & Peringatan --- */
+        h2 { 
+            color: #d32f2f; 
+            margin-top: 15px; 
+            font-size: 24px; 
+            letter-spacing: 0.5px;
+            font-weight: 900; 
+            display: inline-block;
+            border-bottom: 3px solid #d32f2f; 
+            padding-bottom: 4px;
+            margin-bottom: 15px;
+        }
+        p { 
+            color: #4a5568; 
+            font-size: 14.5px; 
+            line-height: 1.6; 
+            margin: 10px 0;
+        }
+        .b-text { font-weight: bold; color: #d00000; }
+        
+        .sub-judul {
+            font-weight: 800;
+            color: #ff6b00;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #feebdd;
+            padding-bottom: 5px;
+        }
+
+        /* --- Daftar Paket Kartu Elegan --- */
+        .daftar-paket {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .daftar-paket li {
+            background: #fffaf7;
+            padding: 12px 14px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #ff6b00; 
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.02);
+            border-top: 1px solid #edf2f7;
+            border-right: 1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .nama-paket { font-weight: 700; color: #2d3748; }
+        .harga-paket { color: #ff6b00; font-weight: 800; white-space: nowrap; }
+
+        /* ======================================================== */
+        /* --- KODE ANIMASI DENYUTAN TOMBOL ORANGE (PULSE LOOP) --- */
+        /* ======================================================== */
+        @keyframes denyutTombol {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 107, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+        }
+        .CS { 
+            font-weight: 800; 
+            color: #fff; 
+            font-size: 15px; 
+            background: #ff6b00; /* Warna Oranye Solid Pengaruh Masukan Anda */
+            padding: 14px 20px; 
+            border-radius: 50px; 
+            display: block; 
+            margin-top: 25px; 
+            text-decoration: none;
+            animation: denyutTombol 2s infinite; /* ANIMASI BERDENYUT AKTIF KEMBALI */
+            letter-spacing: 0.5px;
+        }
+        
+        /* --- Footer Brand Warna Kustom --- */
+        .footer-text {
+            font-size: 12px;
+            margin-top: 25px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #a0aec0;
+        }
+        .brand-hub { color: #d32f2f; } 
+        .brand-net { color: #0056b3; } 
+
+        /* --- KODE ANIMASI MASKOT ROBOT DAN BAYANGAN --- */
+        @keyframes melayang {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); } 
+            100% { transform: translateY(0px); }
+        }
+        @keyframes bayangan {
+            0% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(0.7); opacity: 0.1; } 
+            100% { transform: scale(1); opacity: 0.25; } 
+        }
+        @keyframes berkedip {
+            0%, 90%, 100% { transform: scaleY(1); }
+            55% { transform: scaleY(0.1); }
+        }
+        @keyframes melambai {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(-15deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .robot-area {
+            position: relative;
+            width: 100px;
+            height: 110px; 
+            margin: 0 auto;
+        }
+        .robot-container {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto;
+            animation: melayang 3s ease-in-out infinite; 
+        }
+        .robot-svg { 
+            width: 100%;
+            height: 100%;
+        }
+        .mata-robot { 
+            transform-origin: center; 
+            animation: berkedip 4s linear infinite; 
+        }
+        .tangan-lambai { 
+            transform-origin: 95px 65px; 
+            animation: melambai 1.5s ease-in-out infinite; 
+        }
+        .bayangan-robot {
+            width: 50px;
+            height: 6px;
+            background: #ff6b00; 
+            border-radius: 50%;
+            margin: 4px auto 0 auto;
+            transform-origin: center;
+            animation: bayangan 3s ease-in-out infinite; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kotak">
+        <!-- Area Animasi Maskot Robot + Bayangan -->
+        <div class="robot-area">
+            <div class="robot-container">
+                <svg class="robot-svg" viewBox="0 0 120 120" xmlns="http://w3.org">
+                    <path d="M60 20 C60 5, 45 5, 45 15" fill="none" stroke="#ff6b00" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M25 65 C15 70, 12 80, 18 85" fill="none" stroke="#ff6b00" stroke-width="4" stroke-linecap="round"/>
+                    <path class="tangan-lambai" d="M95 65 C105 60, 112 50, 110 45" fill="none" stroke="#ff6b00" stroke-width="4" stroke-linecap="round"/>
+                    <rect x="25" y="25" width="70" height="65" rx="12" fill="#fff" stroke="#ff6b00" stroke-width="5"/>
+                    <rect x="37" y="45" width="46" height="35" rx="6" fill="#fffbf7" stroke="#ff6b00" stroke-width="4"/>
+                    <path d="M44 45 L44 35 M52 45 L52 35 M60 45 L60 35 M68 45 L68 35 M76 45 L76 35" stroke="#ff6b00" stroke-width="3"/>
+                    <g class="mata-robot">
+                        <circle cx="48" cy="60" r="5" fill="#ff6b00"/>
+                        <circle cx="46" cy="58" r="1.5" fill="#fff"/>
+                        <circle cx="72" cy="60" r="5" fill="#ff6b00"/>
+                        <circle cx="70" cy="58" r="1.5" fill="#fff"/>
+                        <path d="M57 68 Q60 72 63 68" fill="none" stroke="#ff6b00" stroke-width="2.5" stroke-linecap="round"/>
+                    </g>
+                    <path d="M45 90 C45 105, 35 105, 30 105" fill="none" stroke="#ff6b00" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M75 90 C75 105, 85 105, 90 105" fill="none" stroke="#ff6b00" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="bayangan-robot"></div>
+        </div>
+
+        <h2>INTERNET TERISOLIR!!</h2>
+        <p>Mohon maaf, masa aktif layanan internet Anda telah habis (<span class="b-text">Jatuh Tempo</span>).</p>
+        <p>Silakan lakukan pembayaran iuran bulanan agar sistem otomatis membuka kembali jaringan Anda.</p>
+        
+        <div class="sub-judul">PILIHAN JENIS IURAN</div>
+        <ul class="daftar-paket">
+            <li><span class="nama-paket">BrushSevenUp (BSU)</span> <span class="harga-paket">Rp 105.000 / bln</span></li>
+            <li><span class="nama-paket">BrushTenUp (BTU)</span> <span class="harga-paket">Rp 137.000 / bln</span></li>
+            <li><span class="nama-paket">HyperTen (H10)</span> <span class="harga-paket">Rp 180.000 / bln</span></li>
+            <li><span class="nama-paket">StreamTwelve (S12)</span> <span class="harga-paket">Rp 232.000 / bln</span></li>
+            <li><span class="nama-paket">UltraFifteen (U15)</span> <span class="harga-paket">Rp 288.000 / bln</span></li>
+        </ul>
+
+        <!-- BUTTON WA BERDENYUT EMAS JINGGA -->
+        <a href="https://wa.me" class="CS" target="_blank">Konfirmasi Iuran</a>
+        
+        <div class="footer-text"><span class="brand-hub">HUB</span><span class="brand-net">net</span> Mandiri Access Connection</div>
+    </div>
+
+</body>
+</html>
